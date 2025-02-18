@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background: url('background.jpg') no-repeat center center fixed;
+    background: url('../images/background.jpg') no-repeat center center fixed;
     background-size: cover;
     font-family: Arial, sans-serif;
 }
@@ -11,12 +11,12 @@ body {
     height: 500px;
     border: 2px solid black;
     margin: 20px auto;
-    background: url('surface.jpg') no-repeat center center;
+    background: url('../images/surface.jpg') no-repeat center center;
     background-size: cover;
     overflow: hidden;
 }
 
-.bug {
+.bug, .bug2 {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -24,7 +24,7 @@ body {
     transition: transform 0.1s ease-in-out;
 }
 
-.bug:hover {
+.bug:hover, .bug2:hover {
     transform: scale(1.1);
 }
 

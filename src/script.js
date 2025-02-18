@@ -12,24 +12,16 @@ document.addEventListener("DOMContentLoaded", () => {
     let bugSpeed = 2;
     let bugs = [];
 
-    // Try to autoplay background music
-    function playBackgroundMusic() {
-        bgMusic.loop = true;
-        bgMusic.volume = 0.5; // Adjust volume if needed
-        bgMusic.play().catch(() => {
-            document.addEventListener("click", allowMusicOnInteraction, { once: true });
+    // Play the background music after a click event
+    document.body.addEventListener("click", () => {
+        bgMusic.play().catch((error) => {
+            console.log("Audio play failed:", error);
         });
-    }
-
-    function allowMusicOnInteraction() {
-        bgMusic.play();
-    }
-
-    playBackgroundMusic(); // Try autoplay on page load
+    });
 
     function spawnBug() {
         const bug = document.createElement("img");
-        bug.src = "bug.png";
+        bug.src = "images/bug.png";
         bug.classList.add("bug");
         bug.style.left = `${Math.random() * (gameContainer.clientWidth - 40)}px`;
         bug.style.top = `${Math.random() * (gameContainer.clientHeight - 40)}px`;
@@ -61,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             bug.classList.add("smashed");
 
             // Play smash sound
-            const smashSound = new Audio("smash.mp3");
+            const smashSound = new Audio("sounds/smash.mp3");
             smashSound.play();
 
             setTimeout(() => {
